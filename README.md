@@ -37,12 +37,14 @@ Este sistema proporciona toda la documentación, herramientas y procesos necesar
 - 📊 Análisis de cobertura de controles
 
 ### 🤖 Automatización con Macros VBA
-- **19 macros avanzadas** para automatizar operaciones
+- **20 macros avanzadas** para automatizar operaciones (19 principales + 1 utilidad)
 - ✅ Validación de datos y prevención de duplicados
-- 🔢 Generación automática de IDs únicos (ACT-2025-001)
-- 📝 Log de auditoría automático de todas las acciones
-- ⚠️ Manejo robusto de errores
+- 🔢 Generación automática de IDs únicos (ACT-2025-001, RIS-2025-001, TRT-2025-001)
+- 📝 Log de auditoría automático en hoja Log_Acciones
+- ⚠️ Manejo robusto de errores con On Error GoTo
 - 💬 Confirmaciones antes de acciones críticas
+- 🎨 Mapa de calor 5×5 visual con leyenda
+- 📄 Exportación PDF de reportes completos
 
 ### 📊 Dashboard y Reportes
 - 📈 Panel de control con métricas clave
@@ -135,51 +137,52 @@ sgsi-ciberseguridad/
 
 ---
 
-## 🤖 Macros VBA Incluidas (19)
+## 🤖 Macros VBA Incluidas (20)
 
 ### 📦 Módulo 1: Gestión de Activos (7 macros)
 
 ```vba
-1. IngresarNuevoActivo        → Agregar activo de información con validación
-2. AgregarCategoria           → Crear nueva categoría de activos
-3. AgregarSubcategoria        → Crear subcategoría de activos
-4. AgregarArea                → Agregar área organizacional
-5. AgregarUbicacion           → Registrar ubicación física
-6. AgregarClase               → Crear clase de activo
-7. AgregarSubclase            → Crear subclase de activo
+1. IngresarNuevoActivo        → Agregar activo con ID automático ACT-2025-XXX
+2. AgregarCategoria           → Crear categoría (Hardware/Software/Datos) con validación
+3. AgregarSubcategoria        → Crear subcategoría asociada a categoría padre
+4. AgregarArea                → Agregar área organizacional (IT/RRHH/Finanzas)
+5. AgregarUbicacion           → Registrar ubicación física con dirección
+6. AgregarClase               → Crear clase de activo (C/I/A)
+7. AgregarSubclase            → Crear subclase con nivel de criticidad 1-5
 ```
 
 ### ⚠️ Módulo 2: Gestión de Riesgos (5 macros)
 
 ```vba
-8. IngresarNuevoRiesgo        → Registrar riesgo con validación
-9. CalcularRiesgoInherente    → Calcular P×I automáticamente
-10. CalcularRiesgoResidual    → Calcular riesgo después de controles
-11. ColorearRiesgos           → Aplicar código de colores por nivel
-12. GenerarMapaCalor          → Crear mapa de calor de riesgos
+8. IngresarNuevoRiesgo        → Registrar riesgo con ID RIS-2025-XXX
+9. CalcularRiesgoInherente    → Calcular P×I con código de colores automático
+10. CalcularRiesgoResidual    → Calcular riesgo después de controles implementados
+11. ColorearRiesgos           → Aplicar colores: Verde/Amarillo/Naranja/Rojo
+12. GenerarMapaCalor          → Crear matriz 5×5 visual con leyenda en hoja nueva
 ```
 
 ### 🛠️ Módulo 3: Plan de Tratamiento (3 macros)
 
 ```vba
-13. IngresarNuevoTratamiento  → Agregar medida de tratamiento
-14. ActualizarEstadoTratamiento → Actualizar progreso de tratamiento
-15. GenerarInformeTratamiento → Crear informe de avance
+13. IngresarNuevoTratamiento  → Agregar tratamiento con ID TRT-2025-XXX
+14. ActualizarEstadoTratamiento → Cambiar estado (Planificado/En Proceso/Implementado/Verificado/Cerrado)
+15. GenerarInformeTratamiento → Crear informe ejecutivo con % de cumplimiento
 ```
 
 ### 📊 Módulo 4: Dashboard y Reportes (4 macros)
 
 ```vba
-16. ActualizarDashboard       → Refrescar métricas del dashboard
-17. ExportarReporteCompleto   → Exportar reporte completo a PDF
-18. ExportarActivosPDF        → Exportar inventario de activos a PDF
-19. ValidarCumplimientoISO    → Verificar cumplimiento ISO 27001
+16. ActualizarDashboard       → Refrescar métricas (total activos/riesgos/críticos)
+17. ExportarReporteCompleto   → Exportar 7 hojas a PDF con fecha en nombre
+18. ExportarActivosPDF        → Exportar solo inventario de activos a PDF
+19. ValidarCumplimientoISO    → Mostrar checklist de 20 hojas ISO 27001
 ```
 
-### 🔧 Módulo 5: Utilidades
+### 🔧 Módulo 5: Utilidades (1 función)
 
 ```vba
-RegistrarAccion()             → Función interna de auditoría
+20. RegistrarAccion(accion)   → Función interna de auditoría en Log_Acciones
+                               Registra: Fecha/Hora, Usuario, Acción realizada
 ```
 
 ---
@@ -332,24 +335,30 @@ graph TD
 
 | Característica | Descripción |
 |----------------|-------------|
-| 🔢 **IDs Automáticos** | Formato ACT-2025-001 con año y correlativo |
-| ✅ **Validación de Duplicados** | Previene registros duplicados |
-| 💬 **Confirmaciones** | Diálogos antes de crear/modificar |
-| ⚠️ **Manejo de Errores** | Try-Catch en todas las macros |
-| 📝 **Log de Auditoría** | Registro automático en Log_Acciones |
-| 🧮 **Cálculo Automático** | Riesgo = P × I con colores |
+| 🔢 **IDs Automáticos** | Formato ACT-2025-001, RIS-2025-001, TRT-2025-001 con año |
+| ✅ **Validación de Duplicados** | Previene categorías/áreas duplicadas |
+| 💬 **Confirmaciones** | Diálogos antes de crear/modificar con MsgBox |
+| ⚠️ **Manejo de Errores** | On Error GoTo ErrorHandler en todas las macros |
+| 📝 **Log de Auditoría** | Registro automático en Log_Acciones con timestamp |
+| 🧮 **Cálculo Automático** | Riesgo = P × I con colores (Verde/Amarillo/Naranja/Rojo) |
+| 🗺️ **Mapa de Calor** | Matriz 5×5 visual en hoja nueva con leyenda |
+| 📊 **Gestión de Estados** | 5 estados (Planificado/En Proceso/Implementado/Verificado/Cerrado) |
+| 📄 **Exportación PDF** | Reportes completos y parciales con fecha automática |
 | 🎛️ **Panel Organizado** | Botones por categoría con código de colores |
-| 📊 **Dashboard Mejorado** | Métricas en tiempo real |
+| � **Dashboard Mejorado** | Métricas en tiempo real con actualización automática |
 
 ### 🔄 Diferencias vs. v2.0
 
 | Aspecto | v2.0 | v3.0 |
 |---------|------|------|
 | Hojas | 12 | **32** (+167%) |
-| Macros | 12 básicas | **19 avanzadas** (+58%) |
+| Macros | 12 básicas | **20 avanzadas** (+67%) |
 | ISO 27001 | Parcial (7.7%) | **100% completo** |
 | Validación | ❌ No | ✅ Completa |
 | Auditoría | ❌ No | ✅ Log automático |
+| Exportación PDF | ❌ No | ✅ Reportes completos |
+| Mapa de Calor | ❌ No | ✅ Matriz 5×5 visual |
+| Gestión Estados | ❌ Básica | ✅ 5 estados + progreso |
 | Documentación | Básica | **400+ líneas guía** |
 | MITRE ATT&CK | ✅ Sí | ✅ Actualizado v17.1 |
 
@@ -678,7 +687,7 @@ Gracias a:
 ```
 📁 Archivos generados:           3
 📊 Hojas Excel:                 32
-🤖 Macros VBA:                  19
+🤖 Macros VBA:                  20
 📝 Líneas de código Python:  3,500+
 📖 Líneas de documentación:    400+
 ⏱️ Tiempo de desarrollo:    ~40 horas
