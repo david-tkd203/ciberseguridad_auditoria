@@ -1,0 +1,11 @@
+# Ignore everything
+*
+# Allow directories so negated files can be tracked
+!*/
+# Keep these specific files (at repo root)
+!/SGSI_COMPLETO_FINAL_v3.0.xlsm
+!/SGSI_COMPLETO_FINAL_v3.0.xlsx
+!/SGSI_COMPLETO_v3.0_Macros.txt
+!/README.md
+# Keep this .gitignore itself
+!/.gitignore
