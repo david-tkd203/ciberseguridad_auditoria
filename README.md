@@ -25,9 +25,7 @@ Facilitar la implementación de un SGSI certificable bajo ISO 27001:2022, propor
 | Beneficio | Descripción |
 |-----------|-------------|
 | 💼 **Ahorro de Tiempo** | Sistema preconfigurado elimina 200+ horas de trabajo manual |
-| 📊 **Cumplimiento Total** | 100% alineado con ISO 27001:2022 y Anexo A |
 | 🤖 **Automatización** | 21 macros VBA reducen errores y aceleran procesos |
-| 🔒 **Seguridad Probada** | Framework validado por expertos en ciberseguridad |
 | 📈 **Escalabilidad** | Desde startups hasta grandes corporaciones |
 
 
