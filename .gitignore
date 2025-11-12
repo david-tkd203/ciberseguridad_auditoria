@@ -5,7 +5,9 @@
 # Keep these specific files (at repo root)
 !/SGSI_COMPLETO_David_Nanculeo_v4.0.xlsm
 !/SGSI_COMPLETO_David_Nanculeo_v4.0.xlsx
-!/SGSI_COMPLETO_v3.1_Macros_SIN_DUPLICADOS.txt
+!/SGSI_COMPLETO_David_Nanculeo_v4.0_DEMO.xlsm
+!/SGSI_MACROS_VBA_COMPLETAS_v5.0_CONSOLIDADO.txt
+!/SGSI_COMPLETO_David_Nanculeo_v4.5_FINAL.xlsm
 !/README.md
 # Keep this .gitignore itself
 !/.gitignore

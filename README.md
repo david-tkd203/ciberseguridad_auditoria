@@ -1,15 +1,27 @@
 # 🛡️ SGSI - Sistema de Gestión de Seguridad de la Información v4.0
 
 [![ISO 27001:2022](https://img.shields.io/badge/ISO%2027001-2022-blue.svg)](https://www.iso.org/standard/27001)
-[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK-red.svg)](https://attack.mitre.org/)
+[![MITRE ATT&CK](https://img.shields.io/badge/MITRE-ATT%26CK%20ICS%20v17.1-red.svg)](https://attack.mitre.org/matrices/ics/)
 [![Excel](https://img.shields.io/badge/Excel-2016%2B-green.svg)](https://www.microsoft.com/excel)
 [![VBA Macros](https://img.shields.io/badge/VBA-21%20Macros-orange.svg)](https://docs.microsoft.com/office/vba/api/overview/excel)
+[![MITRE Integration](https://img.shields.io/badge/MITRE-83%20T%C3%A9cnicas%20%7C%2052%20Mitigaciones%20%7C%2014%20Assets-purple.svg)](https://attack.mitre.org/matrices/ics/)
+[![Update](https://img.shields.io/badge/%C3%9Altima%20Actualizaci%C3%B3n-12%2F11%2F2025-brightgreen.svg)]()
 
 ---
 
 ## 📋 Descripción General
 
-**Sistema completo y profesional** de gestión de seguridad de la información (SGSI) que implementa **todas las exigencias de la norma ISO 27001:2022**. Este sistema proporciona documentación completa, herramientas automatizadas y procesos robustos para **implementar, gestionar y certificar** un SGSI de clase mundial.
+**Sistema completo y profesional** de gestión de seguridad de la información (SGSI) que implementa **todas las exigencias de la norma ISO 27001:2022** con integración completa del framework **MITRE ATT&CK ICS v17.1**. Este sistema proporciona documentación completa, herramientas automatizadas y procesos robustos para **implementar, gestionar y certificar** un SGSI de clase mundial.
+
+### 🆕 ÚLTIMA ACTUALIZACIÓN (12/11/2025)
+
+**Panel de Control v4.0 + Integración MITRE ATT&CK ICS:**
+- ✅ **Estadísticas de activos reparadas** (K5:M12) con fórmulas dinámicas
+- ✅ **Panel visual MITRE** (O5:Q16) con 83 técnicas + 52 mitigaciones + 14 assets
+- ✅ **Diseño premium mejorado** con colores corporativos
+- ✅ **Sugerencias automáticas** de códigos MITRE al escribir activos/riesgos
+- ✅ **Sistema de mapeo inteligente** con porcentajes de coincidencia
+- ✅ **504 activos detectados** en el inventario actual
 
 ### 🎯 Propósito
 
@@ -27,7 +39,66 @@ Facilitar la implementación de un SGSI certificable bajo ISO 27001:2022, propor
 | 💼 **Ahorro de Tiempo** | Sistema preconfigurado elimina 200+ horas de trabajo manual |
 | 🤖 **Automatización** | 21 macros VBA reducen errores y aceleran procesos |
 | 📈 **Escalabilidad** | Desde startups hasta grandes corporaciones |
+| 🛡️ **MITRE Integrado** | 83 técnicas + 52 mitigaciones + 14 assets ICS v17.1 |
+| 🎨 **Panel Premium** | Estadísticas en tiempo real y diseño profesional |
 
+---
+
+## 🎯 Panel de Control v4.0 - NUEVO
+
+### 📊 Estadísticas en Tiempo Real (K5:M12)
+
+El Panel de Control ahora incluye **estadísticas automáticas** que se actualizan en tiempo real:
+
+| Indicador | Fórmula | Actualización |
+|-----------|---------|---------------|
+| **Total Activos** | `=COUNTA(Activos!A2:A505)` | Automática |
+| **Activos Críticos** | `=COUNTIF(Activos!O2:O505,5)` | Automática |
+| **Activos IT** | `=COUNTIF(Activos!C2:C505,"Hardware")` | Automática |
+| **Activos OT** | `=COUNTIF(Activos!C2:C505,"OT")` | Automática |
+| **Con MITRE** | `=COUNTA(Activos!U2:U505)` | Automática |
+| **Sin MITRE** | `=COUNTBLANK(Activos!U2:U505)` | Automática |
+
+**Características:**
+- ✅ No requiere ejecutar macros
+- ✅ Colores según criticidad (verde/naranja/rojo)
+- ✅ Porcentajes calculados dinámicamente
+- ✅ Total actual detectado: **504 activos**
+
+### 🛡️ Panel Visual MITRE ATT&CK ICS (O5:Q16)
+
+Dashboard interactivo del framework MITRE:
+
+#### 🔴 Técnicas de Ataque
+- **83 técnicas** (T0800 - T0895)
+- Tácticas: Initial Access, Execution, Persistence, etc.
+- Color: Rojo (#D32F2F)
+
+#### 🔵 Mitigaciones
+- **52 controles** (M0801 - M0949)
+- Estrategias: Network Segmentation, Access Control, etc.
+- Color: Azul (#1976D2)
+
+#### 🟢 Assets ICS
+- **14 tipos** (A0001 - A0014)
+- Categorías: PLC, HMI, SCADA, Control Server, etc.
+- Color: Verde (#388E3C)
+
+#### 📊 Cobertura en Tiempo Real
+- **Activos mapeados:** Cuenta automática de activos con código MITRE
+- **Riesgos con técnicas:** Cuenta de riesgos vinculados a técnicas
+- **Porcentaje de cobertura:** Calculado dinámicamente
+- **Hipervínculo directo:** A hojas MITRE para análisis detallado
+
+### 🎨 Diseño Premium
+
+Paleta de colores corporativa:
+- 🔵 **Azul oscuro** (#002060): Títulos principales
+- 🔵 **Azul medio** (#0070C0): Subtítulos y navegación
+- 🟢 **Verde** (#00B050): Módulo Activos
+- 🟠 **Naranja** (#FF6B00): Módulo Riesgos
+- 🟣 **Morado** (#7030A0): Módulo Tratamientos y MITRE
+- ⚫ **Gris** (#7F7F7F): Utilidades
 
 ---
 
