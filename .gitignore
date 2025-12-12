@@ -8,6 +8,7 @@
 !/SGSI_COMPLETO_David_Nanculeo_v4.0_DEMO.xlsm
 !/SGSI_MACROS_VBA_COMPLETAS_v5.0_CONSOLIDADO.txt
 !/SGSI_COMPLETO_David_Nanculeo_v4.5_FINAL.xlsm
+!/documentacion/*
 !/README.md
 # Keep this .gitignore itself
 !/.gitignore
