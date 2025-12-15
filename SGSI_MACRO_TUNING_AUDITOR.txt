@@ -1,8 +1,8 @@
 ' ========================================================================
-' MÓDULO X: TUNING / EVALUACIÓN DEL AUDITOR
+' MODULO X: TUNING / EVALUACION DEL AUDITOR
 ' ========================================================================
 
-' Función auxiliar: buscar columna por título en fila 1
+' Funcion auxiliar: buscar columna por titulo en fila 1
 Private Function BuscarColumnaPorTitulo(ws As Worksheet, titulo As String) As Long
     Dim ultimaCol As Long
     Dim col As Long
@@ -47,8 +47,8 @@ Sub ConfigurarEscalaTuningAuditor()
     ws.Range("A1").Value = "Nivel (1-5)"
     ws.Range("B1").Value = "Etiqueta"
     ws.Range("C1").Value = "Factor_Tuning"
-    ws.Range("D1").Value = "Interpretación"
-    ws.Range("E1").Value = "Detalle técnico"
+    ws.Range("D1").Value = "Interpretacion"
+    ws.Range("E1").Value = "Detalle tecnico"
     
     With ws.Range("A1:E1")
         .Font.Bold = True
@@ -56,41 +56,41 @@ Sub ConfigurarEscalaTuningAuditor()
         .Interior.Color = RGB(217, 225, 242)
     End With
     
-    ' Niveles (1..5) basados en escala -2..+2 y factor ±30% (0,15 por paso)
+    ' Niveles (1..5) basados en escala -2..+2 y factor +/-30% (0,15 por paso)
     ' Nivel 1 -> Tuning -2 -> Factor 0,70
     ws.Range("A2").Value = 1
     ws.Range("B2").Value = "Muy Atenuante (-2)"
     ws.Range("C2").Value = 0.7
     ws.Range("D2").Value = "Reduce fuertemente el riesgo calculado"
-    ws.Range("E2").Value = "Controles compensatorios muy robustos que la fórmula estándar no refleja."
+    ws.Range("E2").Value = "Controles compensatorios muy robustos que la formula estandar no refleja."
     
     ' Nivel 2 -> Tuning -1 -> Factor 0,85
     ws.Range("A3").Value = 2
     ws.Range("B3").Value = "Atenuante (-1)"
     ws.Range("C3").Value = 0.85
     ws.Range("D3").Value = "Reduce moderadamente el riesgo"
-    ws.Range("E3").Value = "Arquitectura protegida, controles adicionales efectivos, exposición menor a la teórica."
+    ws.Range("E3").Value = "Arquitectura protegida, controles adicionales efectivos, exposicion menor a la teorica."
     
     ' Nivel 3 -> Tuning 0 -> Factor 1,00
     ws.Range("A4").Value = 3
     ws.Range("B4").Value = "Neutro (0)"
     ws.Range("C4").Value = 1
     ws.Range("D4").Value = "No ajusta el riesgo"
-    ws.Range("E4").Value = "Lo que muestra la matriz coincide con la realidad observada en la auditoría."
+    ws.Range("E4").Value = "Lo que muestra la matriz coincide con la realidad observada en la auditoria."
     
     ' Nivel 4 -> Tuning +1 -> Factor 1,15
     ws.Range("A5").Value = 4
     ws.Range("B5").Value = "Agravante (+1)"
     ws.Range("C5").Value = 1.15
     ws.Range("D5").Value = "Aumenta moderadamente el riesgo"
-    ws.Range("E5").Value = "Brechas relevantes, controles débiles o mala cultura de seguridad."
+    ws.Range("E5").Value = "Brechas relevantes, controles debiles o mala cultura de seguridad."
     
-    ' Nivel 5 -> Tuning +2 -> Factor 1,30 + posible override a crítico
+    ' Nivel 5 -> Tuning +2 -> Factor 1,30 + posible override a critico
     ws.Range("A6").Value = 5
     ws.Range("B6").Value = "Muy Agravante (+2)"
     ws.Range("C6").Value = 1.3
     ws.Range("D6").Value = "Aumenta fuertemente el riesgo"
-    ws.Range("E6").Value = "Hallazgo crítico o ""suicidio digital"": vulnerabilidad explotable activa."
+    ws.Range("E6").Value = "Hallazgo critico o 'suicidio digital': vulnerabilidad explotable activa."
     
     ' Formato general
     With ws.UsedRange
@@ -109,13 +109,13 @@ Sub ConfigurarEscalaTuningAuditor()
         Call RegistrarAccion("Hoja Config_Tuning actualizada")
     End If
     
-    MsgBox "✅ Escala de Tuning del auditor configurada en 'Config_Tuning'." & vbCrLf & vbCrLf & _
-           "Niveles 1-5 con factores de ajuste ±30% (0,15 por paso).", _
+    MsgBox "Escala de Tuning del auditor configurada en 'Config_Tuning'." & vbCrLf & vbCrLf & _
+           "Niveles 1-5 con factores de ajuste +/-30% (0,15 por paso).", _
            vbInformation, "Config Tuning Auditor"
     Exit Sub
     
 ErrorHandler:
-    MsgBox "❌ Error al configurar la escala de Tuning: " & Err.Description, _
+    MsgBox "Error al configurar la escala de Tuning: " & Err.Description, _
            vbCritical, "Error Tuning"
 End Sub
 
@@ -155,7 +155,7 @@ Sub AplicarTuningAuditor()
     On Error GoTo ErrorHandler
     
     If ws Is Nothing Then
-        MsgBox "❌ Error: no se encontró la hoja 'Matriz_Riesgos'.", _
+        MsgBox "Error: no se encontro la hoja 'Matriz_Riesgos'.", _
                vbCritical, "Tuning Auditor"
         Exit Sub
     End If
@@ -168,10 +168,10 @@ Sub AplicarTuningAuditor()
         Call ConfigurarEscalaTuningAuditor
     End If
     
-    If MsgBox("🧠 ¿Aplicar TUNING del auditor sobre los riesgos inherentes?" & vbCrLf & vbCrLf & _
-              "• Se usará la columna G (Riesgo Inherente) como base." & vbCrLf & _
-              "• Se aplicará un factor entre 0,70 y 1,30 según el nivel 1-5." & vbCrLf & _
-              "• Nivel 5 puede forzar el riesgo a CRÍTICO (25).", _
+    If MsgBox("Aplicar TUNING del auditor sobre los riesgos inherentes?" & vbCrLf & vbCrLf & _
+              "- Se usara la columna G (Riesgo Inherente) como base." & vbCrLf & _
+              "- Se aplicara un factor entre 0,70 y 1,30 segun el nivel 1-5." & vbCrLf & _
+              "- Nivel 5 puede forzar el riesgo a CRITICO (25).", _
               vbQuestion + vbYesNo, "Aplicar Tuning Auditor") = vbNo Then Exit Sub
     
     Application.ScreenUpdating = False
@@ -224,7 +224,7 @@ Sub AplicarTuningAuditor()
         .HorizontalAlignment = xlCenter
     End With
     
-    ' Validación de datos para columna TUNING_AUDITOR (1 a 5)
+    ' Validacion de datos para columna TUNING_AUDITOR (1 a 5)
     ultimaFila = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
     With ws.Range(ws.Cells(2, colTuning), ws.Cells(ultimaFila, colTuning))
         On Error Resume Next
@@ -234,7 +234,7 @@ Sub AplicarTuningAuditor()
                         Operator:=xlBetween, Formula1:="1", Formula2:="5"
         .Validation.InputTitle = "Tuning Auditor (1-5)"
         .Validation.InputMessage = "1=Muy Atenuante, 2=Atenuante, 3=Neutro, 4=Agravante, 5=Muy Agravante."
-        .Validation.ErrorTitle = "Valor no válido"
+        .Validation.ErrorTitle = "Valor no valido"
         .Validation.ErrorMessage = "Ingrese un valor entre 1 y 5 para el Tuning del auditor."
     End With
     
@@ -261,11 +261,11 @@ Sub AplicarTuningAuditor()
                 ' Factor: 1 + (nivel - 3) * 0,15  => rango [0,70 ; 1,30]
                 factor = 1 + (CDbl(nivelTuning) - 3#) * 0.15
                 
-                ' Cálculo base
+                ' Calculo base
                 riesgoAjustado = CDbl(riesgoInh) * factor
                 
                 ' Override determinista: si nivel 5 y el auditor ve "suicidio digital"
-                ' forzamos a CRÍTICO (25) como máximo teórico.
+                ' forzamos a CRITICO (25) como maximo teorico.
                 If nivelTuning >= 5 And riesgoInh > 0 Then
                     riesgoAjustado = 25
                 End If
@@ -283,7 +283,7 @@ Sub AplicarTuningAuditor()
                 
                 ' Determinar nivel y colores igual que la matriz original
                 If riesgoAjustado >= 15 Then
-                    nivelTexto = "CRÍTICO"
+                    nivelTexto = "CRITICO"
                     colorFondo = RGB(192, 0, 0)
                     colorTexto = RGB(255, 255, 255)
                 ElseIf riesgoAjustado >= 10 Then
@@ -322,7 +322,7 @@ Sub AplicarTuningAuditor()
                 
                 contador = contador + 1
             Else
-                ' Si la fila tiene riesgo en blanco o inválido pero hay texto, lo contamos como error
+                ' Si la fila tiene riesgo en blanco o invalido pero hay texto, lo contamos como error
                 errores = errores + 1
             End If
         End If
@@ -333,20 +333,20 @@ Sub AplicarTuningAuditor()
     
     Call RegistrarAccion("Tuning auditor aplicado a " & contador & " riesgos (errores: " & errores & ")")
     
-    MsgBox "✅ TUNING del auditor aplicado correctamente." & vbCrLf & vbCrLf & _
+    MsgBox "TUNING del auditor aplicado correctamente." & vbCrLf & vbCrLf & _
            "Riesgos ajustados: " & contador & vbCrLf & _
-           "Filas con datos no válidos: " & errores & vbCrLf & vbCrLf & _
+           "Filas con datos no validos: " & errores & vbCrLf & vbCrLf & _
            "Se han generado/actualizado las columnas:" & vbCrLf & _
-           "• TUNING_AUDITOR (1-5)" & vbCrLf & _
-           "• FACTOR_TUNING (0,70 – 1,30)" & vbCrLf & _
-           "• RIESGO_TUNING" & vbCrLf & _
-           "• NIVEL_TUNING", _
+           "- TUNING_AUDITOR (1-5)" & vbCrLf & _
+           "- FACTOR_TUNING (0,70 - 1,30)" & vbCrLf & _
+           "- RIESGO_TUNING" & vbCrLf & _
+           "- NIVEL_TUNING", _
            vbInformation, "Tuning Auditor"
     Exit Sub
     
 ErrorHandler:
     Application.Calculation = xlCalculationAutomatic
     Application.ScreenUpdating = True
-    MsgBox "❌ Error al aplicar Tuning del auditor: " & Err.Description & vbCrLf & _
-           "Código: " & Err.Number, vbCritical, "Error Tuning"
+    MsgBox "Error al aplicar Tuning del auditor: " & Err.Description & vbCrLf & _
+           "Codigo: " & Err.Number, vbCritical, "Error Tuning"
 End Sub

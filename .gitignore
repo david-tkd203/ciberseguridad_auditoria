@@ -3,12 +3,14 @@
 # Allow directories so negated files can be tracked
 !*/
 # Keep these specific files (at repo root)
-!/SGSI_COMPLETO_David_Nanculeo_v4.0.xlsm
-!/SGSI_COMPLETO_David_Nanculeo_v4.0.xlsx
-!/SGSI_COMPLETO_David_Nanculeo_v4.0_DEMO.xlsm
+!/SGSI_COMPLETO_David_Nanculeo_v5.0.xlsm
 !/SGSI_MACROS_VBA_COMPLETAS_v5.0_CONSOLIDADO.txt
+!/SGSI_MACRO_TUNING_AUDITOR.txt
 !/SGSI_COMPLETO_David_Nanculeo_v4.5_FINAL.xlsm
 !/documentacion/*
 !/README.md
+!/SGSI_MACRO_TUNING_AUDITOR.txt
+!/tuning_auditor_sgsi.py
+!/Tuning.pdf
 # Keep this .gitignore itself
 !/.gitignore
